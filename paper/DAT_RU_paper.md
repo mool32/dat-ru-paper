@@ -56,7 +56,7 @@ This calibration was derived by fitting to 5,000 random 7-word samples drawn fro
 
 ### 2.4 Data Collection
 
-The application was deployed at [URL redacted for review] and distributed through the first author's Facebook posts beginning February 18, 2026. Distribution was organic: initial posts were shared and reshared within Russian-speaking social networks. No paid promotion or recruitment platforms were used.
+The application was deployed at https://mool32.github.io/dat-ru/ and distributed through the first author's Facebook posts beginning February 18, 2026. Distribution was organic: initial posts were shared and reshared within Russian-speaking social networks. No paid promotion or recruitment platforms were used.
 
 Each submission recorded: (a) timestamp (UTC), (b) adjusted DAT score, (c) the seven scoring words (lemmatized), (d) time spent from page load to submission (seconds), and (e) the browser's user-agent string. No personally identifiable information, IP addresses, cookies, or persistent identifiers were collected.
 

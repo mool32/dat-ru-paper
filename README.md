@@ -4,6 +4,8 @@
 
 ## Overview
 
+**Try the test:** [https://mool32.github.io/dat-ru/](https://mool32.github.io/dat-ru/)
+
 DAT-RU is a Russian-language adaptation of the Divergent Association Task (DAT; [Olson et al., 2021](https://doi.org/10.1073/pnas.2022340118)), a rapid, automated measure of verbal creativity. Participants name 10 semantically unrelated Russian nouns; the score is the mean cosine distance between word embeddings (navec, 300d) of the first 7 valid words.
 
 This repository contains:
