@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAT-RU — Тест на вербальную креативность</title>
+    <meta name="description" content="Тест на вербальную креативность. Напиши 10 существительных, максимально далёких и не связанных друг с другом по смыслу, и узнай свой балл.">
+    <meta property="og:title" content="DAT-RU — Тест на вербальную креативность">
+    <meta property="og:description" content="Тест на вербальную креативность. Пройди тест за 3 минуты.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Экран загрузки -->
+    <div id="loading-screen" class="screen">
+        <div class="loading-content">
+            <h1>DAT-RU</h1>
+            <p>Загружаю словарь...</p>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+            <p class="progress-text" id="progress-text">0%</p>
+        </div>
+    </div>
+
+    <!-- Экран ввода -->
+    <div id="input-screen" class="screen hidden">
+        <div class="container">
+            <header>
+                <h1>Тест на вербальную креативность</h1>
+                <p class="subtitle">Напиши 10 существительных, максимально далёких и не связанных друг с другом по смыслу</p>
+                <div class="rules">
+                    <span>Только существительные</span>
+                    <span>Только нарицательные</span>
+                    <span>Одно слово в каждом поле</span>
+                </div>
+            </header>
+
+            <div class="timer-section">
+                <span id="timer-display" class="timer-display">3:00</span>
+                <button id="timer-toggle" class="timer-btn active" title="Выключить таймер">⏸</button>
+            </div>
+
+            <form id="word-form">
+                <div class="words-grid">
+                    <div class="word-input-wrapper" data-index="0">
+                        <span class="word-number">1</span>
+                        <input type="text" class="word-input" data-index="0" placeholder="существительное" autocomplete="off" autocapitalize="none" spellcheck="false">
+                        <span class="validation-icon"></span>
+                        <span class="validation-msg"></span>
+                    </div>
+                    <div class="word-input-wrapper" data-index="1">
+                        <span class="word-number">2</span>
+                        <input type="text" class="word-input" data-index="1" placeholder="существительное" autocomplete="off" autocapitalize="none" spellcheck="false">
+                        <span class="validation-icon"></span>
+                        <span class="validation-msg"></span>
+                    </div>
+                    <div class="word-input-wrapper" data-index="2">
+                        <span class="word-number">3</span>
+                        <input type="text" class="word-input" data-index="2" placeholder="существительное" autocomplete="off" autocapitalize="none" spellcheck="false">
+                        <span class="validation-icon"></span>
+                        <span class="validation-msg"></span>
+                    </div>
+                    <div class="word-input-wrapper" data-index="3">
+                        <span class="word-number">4</span>
+                        <input type="text" class="word-input" data-index="3" placeholder="существительное" autocomplete="off" autocapitalize="none" spellcheck="false">
+                        <span class="validation-icon"></span>
+                        <span class="validation-msg"></span>
+                    </div>
+                    <div class="word-input-wrapper" data-index="4">
+                        <span class="word-number">5</span>
+                        <input type="text" class="word-input" data-index="4" placeholder="существительное" autocomplete="off" autocapitalize="none" spellcheck="false">
+                        <span class="validation-icon"></span>
+                        <span class="validation-msg"></span>
+                    </div>
+                    <div class="word-input-wrapper" data-index="5">
+                        <span class="word-number">6</span>
+                        <input type="text" class="word-input" data-index="5" placeholder="существительное" autocomplete="off" autocapitalize="none" spellcheck="false">
+                        <span class="validation-icon"></span>
+                        <span class="validation-msg"></span>
+                    </div>
+                    <div class="word-input-wrapper" data-index="6">
+                        <span class="word-number">7</span>
+                        <input type="text" class="word-input" data-index="6" placeholder="существительное" autocomplete="off" autocapitalize="none" spellcheck="false">
+                        <span class="validation-icon"></span>
+                        <span class="validation-msg"></span>
+                    </div>
+                    <div class="word-input-wrapper" data-index="7">
+                        <span class="word-number">8</span>
+                        <input type="text" class="word-input" data-index="7" placeholder="существительное" autocomplete="off" autocapitalize="none" spellcheck="false">
+                        <span class="validation-icon"></span>
+                        <span class="validation-msg"></span>
+                    </div>
+                    <div class="word-input-wrapper" data-index="8">
+                        <span class="word-number">9</span>
+                        <input type="text" class="word-input" data-index="8" placeholder="существительное" autocomplete="off" autocapitalize="none" spellcheck="false">
+                        <span class="validation-icon"></span>
+                        <span class="validation-msg"></span>
+                    </div>
+                    <div class="word-input-wrapper" data-index="9">
+                        <span class="word-number">10</span>
+                        <input type="text" class="word-input" data-index="9" placeholder="существительное" autocomplete="off" autocapitalize="none" spellcheck="false">
+                        <span class="validation-icon"></span>
+                        <span class="validation-msg"></span>
+                    </div>
+                </div>
+
+                <div class="form-footer">
+                    <p class="valid-count"><span id="valid-count">0</span> / 10 слов введено</p>
+                    <button type="submit" id="submit-btn" class="btn-primary" disabled>Узнать результат</button>
+                </div>
+            </form>
+
+            <footer class="disclaimer">
+                <p>Неофициальная русская адаптация <a href="https://www.datcreativity.com" target="_blank" rel="noopener">Divergent Association Task</a> (Olson et al., 2021, PNAS). Баллы приблизительные и не сопоставимы напрямую с английской версией.</p>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Экран результатов -->
+    <div id="result-screen" class="screen hidden">
+        <div class="container">
+            <div class="score-section">
+                <div class="score-display">
+                    <span class="score-value" id="score-value">0</span>
+                </div>
+                <p class="score-label" id="score-label"></p>
+                <div class="score-scale">
+                    <div class="scale-bar">
+                        <div class="scale-marker" id="scale-marker"></div>
+                    </div>
+                    <div class="scale-labels">
+                        <span>0</span>
+                        <span>60</span>
+                        <span>78</span>
+                        <span>95</span>
+                        <span>110</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="comparison-section">
+                <div class="comparison-items">
+                    <div class="comparison-item">
+                        <span class="comp-label">Claude Haiku 4.5</span>
+                        <span class="comp-score">~71</span>
+                    </div>
+                    <div class="comparison-item">
+                        <span class="comp-label">Среднее по DAT-RU</span>
+                        <span class="comp-score" id="avg-score">~89</span>
+                    </div>
+                    <div class="comparison-item">
+                        <span class="comp-label">Claude Opus 4.6</span>
+                        <span class="comp-score">~90</span>
+                    </div>
+                    <div class="comparison-item">
+                        <span class="comp-label">ChatGPT 5.2</span>
+                        <span class="comp-score">~93</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="heatmap-section">
+                <div class="heatmap-container" id="heatmap-container"></div>
+            </div>
+
+            <div class="actions-section">
+                <button id="share-btn" class="btn-primary">Поделиться результатом</button>
+                <button id="retry-btn" class="btn-secondary">Попробовать ещё раз</button>
+            </div>
+
+            <div class="info-section">
+                <h2>Как это работает?</h2>
+                <div class="info-item">
+                    <h3>Что такое DAT?</h3>
+                    <p>Divergent Association Task — тест вербальной креативности, разработанный в Гарварде (Olson et al., 2021, <a href="https://www.pnas.org/content/118/25/e2022340118" target="_blank" rel="noopener">PNAS</a>). Идея: чем дальше по смыслу слова, которые ты придумал, тем выше твоя способность к дивергентному мышлению.</p>
+                </div>
+                <div class="info-item">
+                    <h3>Как считается балл?</h3>
+                    <p>Балл — это среднее семантическое расстояние между первыми 7 валидными словами (21 пара). Расстояния вычисляются по тому, как часто слова <a href="https://www.datcreativity.com/faq#distance" target="_blank" rel="noopener">используются вместе</a> в похожих контекстах. В оригинальном DAT средний балл — ~78. Среднее по DAT-RU — ~89, большинство набирают от 83 до 95.</p>
+                </div>
+                <div class="info-item">
+                    <h3>Зачем 10 слов, если считаются только 7?</h3>
+                    <p>Остальные 3 слова — буфер на случай невалидных (опечаток или слишком редких слов). Так задумано в оригинальном тесте.</p>
+                </div>
+                <div class="info-item">
+                    <h3>Почему некоторые расстояния кажутся странными?</h3>
+                    <p>Модель оценивает близость по контексту употребления в текстах, а не по бытовой логике. Например, «крыша» и «скорость» ближе чем кажется, потому что оба слова часто встречаются в экспрессивных контекстах. Это не баг — это особенность статистической модели языка.</p>
+                </div>
+                <div class="info-item">
+                    <h3>Это точный тест?</h3>
+                    <p>Креативность — <a href="https://www.datcreativity.com/faq#simple" target="_blank" rel="noopener">сложный процесс</a>, и этот тест измеряет лишь один его аспект — вербальное дивергентное мышление. Низкий балл <a href="https://www.datcreativity.com/faq#low" target="_blank" rel="noopener">не означает</a>, что ты некреативный — он не учитывает множество видов реальных творческих достижений.</p>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <h2>Под капотом</h2>
+                <div class="info-item">
+                    <h3>Эмбеддинги слов</h3>
+                    <p>Каждое слово представлено как вектор из 300 чисел — точка в 300-мерном пространстве. Эти векторы обучены на большом корпусе русских текстов: слова, которые часто появляются в похожих контекстах, располагаются рядом. Например, «кошка» и «собака» — близко (расстояние ~33), а «кошка» и «математика» — далеко (~100).</p>
+                </div>
+                <div class="info-item">
+                    <h3>Косинусное расстояние</h3>
+                    <p>Расстояние между словами — это косинусное расстояние между их векторами: 1 минус косинус угла. Значение 0 = слова идентичны, ~100 = не связаны, больше 100 = противоположны по контексту. Расстояния в тепловой карте — это значение × 100 для удобства.</p>
+                </div>
+                <div class="info-item">
+                    <h3>Модель: navec</h3>
+                    <p>Используются эмбеддинги <a href="https://github.com/natasha/navec" target="_blank" rel="noopener">navec</a> из проекта Natasha — модель обучена на русской литературе и новостных текстах. Словарь: 68 841 существительное. Векторы квантизированы до int8 для быстрой загрузки в браузере (потеря точности ~3%).</p>
+                </div>
+                <div class="info-item">
+                    <h3>Отличие от оригинала</h3>
+                    <p><a href="https://github.com/jayolson/divergent-association-task" target="_blank" rel="noopener">Оригинальный DAT</a> использует английские эмбеддинги GloVe и не делает никакой коррекции — просто среднее × 100. У нас другая модель (navec) и квантизация int8, из-за чего распределение расстояний сжато: случайные 7 слов дают медиану ~87 вместо ~78. Поэтому мы применяем степенную коррекцию (a·x<sup>p</sup>+b), калиброванную по 5000 случайным наборам, чтобы шкала баллов была сопоставима с <a href="https://www.datcreativity.com" target="_blank" rel="noopener">английской версией</a>.</p>
+                </div>
+                <div class="info-item">
+                    <h3>Примеры расстояний</h3>
+                    <div class="examples-table">
+                        <div class="example-row close">
+                            <span class="example-pair">машина ↔ автомобиль</span>
+                            <span class="example-dist">~26</span>
+                        </div>
+                        <div class="example-row close">
+                            <span class="example-pair">кошка ↔ собака</span>
+                            <span class="example-dist">~33</span>
+                        </div>
+                        <div class="example-row close">
+                            <span class="example-pair">день ↔ ночь</span>
+                            <span class="example-dist">~39</span>
+                        </div>
+                        <div class="example-row medium">
+                            <span class="example-pair">нож ↔ вилка</span>
+                            <span class="example-dist">~65</span>
+                        </div>
+                        <div class="example-row far">
+                            <span class="example-pair">океан ↔ карандаш</span>
+                            <span class="example-dist">~97</span>
+                        </div>
+                        <div class="example-row far">
+                            <span class="example-pair">туман ↔ культ</span>
+                            <span class="example-dist">~99</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="disclaimer">
+                <p>Неофициальная русская адаптация <a href="https://www.datcreativity.com" target="_blank" rel="noopener">Divergent Association Task</a> (Olson et al., 2021, PNAS). Баллы приблизительные.</p>
+                <p>Эмбеддинги: <a href="https://github.com/natasha/navec" target="_blank" rel="noopener">navec</a> (проект Natasha).</p>
+                <p>Автор адаптации: <a href="https://www.facebook.com/teo.spiro.2025" target="_blank" rel="noopener">Teo Spiro</a></p>
+            </footer>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+
+============================================================
+A4: SPLIT-HALF RELIABILITY ANALYSIS — DAT-RU
+============================================================
+
+Dataset: 21159 submissions, 21159 valid (all 7 words found in embeddings)
+
+1. EXHAUSTIVE SPLIT-HALF (all 35 splits of 7 → 3+4):
+   Mean split-half r:          0.5336
+   Spearman-Brown corrected:   0.6959
+   Range of r across splits:   [0.5072, 0.5548]
+
+2. RANDOM SPLIT-HALF (1000 iterations):
+   Mean split-half r:          0.5321
+   Spearman-Brown corrected:   0.6946
+   95% CI of r:                [0.5245, 0.5397]
+
+3. CRONBACH'S ALPHA (21 pairwise distances as items):
+   Cronbach's alpha:           0.8987
+
+4. COMPARISON WITH TEST-RETEST:
+   Split-half (SB corrected):  0.6959
+   Test-retest r:              0.231
+
+5. SCORE-DEPENDENT RELIABILITY (by quintile):
+      Q1 (n=4232): raw r = 0.5816, SB = 0.7354, alpha = 0.9327
+   Q2 (n=4232): raw r = -0.4623, SB = -1.7198, alpha = -4.9573
+   Q3 (n=4231): raw r = -0.4142, SB = -1.4139, alpha = -12.2415
+   Q4 (n=4232): raw r = -0.3256, SB = -0.9655, alpha = -14.6119
+   Q5 (n=4232): raw r = -0.1113, SB = -0.2505, alpha = -1.9391
+
+
+6. SCORE DISTRIBUTION & CEILING EFFECT:
+   Score range: [0.1455, 1.0518]
+   Q25 = 0.9223, Median = 0.9567, Q75 = 0.9806
+   Full-sample variance: 0.005447
+   Q1 variance: 0.009776 (contains real spread)
+   Q5 variance: 0.000182 (ceiling-compressed)
+   Ratio Q1/Q5 variance: 53.8x
+
+   The score distribution is heavily LEFT-skewed: 75% of submissions
+   fall in the narrow range [0.922, 1.052].
+   Only the bottom quintile (creative outliers) has enough variance
+   for meaningful within-group reliability estimation.
+
+7. INTERPRETATION:
+   OVERALL: Split-half reliability (SB = 0.696) >> test-retest (r = 0.231).
+   Cronbach's alpha = 0.899 is excellent.
+
+   The DAT is internally consistent: within a single session, a person's
+   7 words form a coherent pattern. The 21 pairwise distances agree with
+   each other about whether this person produced semantically diverse words.
+
+   However, the low test-retest (0.231) means divergent thinking VARIES
+   across occasions.
+   -> Divergent thinking is STATE-LIKE, not purely trait-like.
+   -> The test measures well *at a given moment*, but creativity fluctuates.
+
+   CAVEAT: Reliability is score-dependent due to a strong ceiling effect.
+   Only the bottom 20% of scores (the most creative responses) show positive
+   within-group reliability (r = 0.582). The top 80% are compressed
+   into a narrow range where noise exceeds signal within-group. This means
+   the overall alpha (0.899) is partly driven by the between-group
+   spread between creative outliers and the ceiling-clustered majority.
+============================================================

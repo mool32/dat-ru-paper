@@ -1,0 +1,71 @@
+Cross-linguistic Calibration Analysis A1: DAT-RU vs English DAT
+================================================================
+
+Question: Is the ~11-point gap (RU ~89 vs EN ~78 mean) a property of
+Russian language/culture, or an artifact of different embedding models?
+
+Method:
+- Top 200 words from DAT-RU dataset translated to English
+- 195 valid word pairs (in both navec and GloVe vocabularies)
+- Pairwise cosine distances computed in both embedding spaces
+- 1000 random 7-word DAT scores simulated with identical word sets
+
+Key Results:
+-----------
+1. DISTANCE CORRELATION (pairwise, 18,915 pairs):
+   Pearson r  = 0.664
+   Spearman ρ = 0.632
+   R² = 0.440
+
+   Interpretation: MODERATE correlation. The models agree on broad
+   semantic structure but disagree substantially on many specific pairs.
+   ~44% of variance in Russian distances is explained by English distances.
+
+2. DISTANCE CALIBRATION:
+   EN mean distance: 0.886
+   RU mean distance: 0.906
+   Ratio (RU/EN): 1.023 (Russian is ~2.3% larger on average)
+   Linear mapping: RU = 0.728 * EN + 0.261
+
+   The calibration curve shows navec compresses close pairs upward
+   (navec shows closer words as less close) and slightly compresses
+   distant pairs downward. Net effect is a small systematic shift.
+
+3. DAT SCORE SIMULATION (same words, different models):
+   EN mean score: 88.70 ± 3.62
+   RU mean score: 90.70 ± 3.69
+   Difference: +2.00 points (Cohen's d = 0.72, p < 1e-91)
+   Score correlation: r = 0.708
+
+   CRITICAL FINDING: Same words scored in GloVe yield mean ~88.7,
+   not ~78. This means the ~78 English DAT mean reflects WORD CHOICE
+   by English speakers, not the embedding model.
+
+   The model calibration accounts for only ~2 points of the 11-point gap.
+
+4. POLYSEMY ARTIFACTS (top disagreement pairs):
+   - apple/computer: GloVe close (Apple Inc.), navec distant (just fruit)
+   - river/fork: GloVe close (fork in a river), navec distant (utensil)
+   - salt/lake: GloVe close (salt lake), navec distant
+   - furniture cluster: navec treats стол-шкаф-диван as very close
+
+   These reflect genuine semantic differences between languages/corpora.
+
+Conclusion:
+----------
+The ~11-point gap between DAT-RU (~89) and English DAT (~78) is
+MOSTLY NOT a calibration artifact:
+  - ~2 points: model calibration (navec vs GloVe systematic offset)
+  - ~9 points: word selection differences between Russian and English speakers
+
+Russian speakers choose words that are inherently more distant from each
+other (in BOTH embedding spaces), suggesting either:
+  a) Different word-selection strategies (Russian speakers use more diverse
+     semantic categories)
+  b) Sample characteristics (DAT-RU participants may differ demographically)
+  c) Russian morphology/vocabulary naturally affords greater semantic spread
+
+The moderate correlation (r=0.66) between models means cross-linguistic
+score comparison should be done cautiously, but the direction is clear:
+Russian speakers genuinely score higher, and this is not primarily an
+embedding artifact.

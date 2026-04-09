@@ -1,0 +1,4 @@
+Analysis,r_adjusted,r_raw,n,verdict
+Test-retest (attempt1 vs attempt2),0.23136478338747746,0.2640227890917147,983,"Preserves (same sign, |delta_r| < 0.05)"
+Word frequency (log freq vs score),-0.050529693785272986,-0.05754166477539547,21159,"Preserves (same sign, |delta_r| < 0.05)"
+Time-on-task (time vs score),0.10287740345746843,0.12088295179850073,20946,"Preserves (same sign, |delta_r| < 0.05)"

@@ -1,0 +1,77 @@
+
+A3 SENSITIVITY ANALYSIS SUMMARY
+================================
+
+DATASET COMPOSITION BY UA SPECIFICITY
+--------------------------------------
+Category     | UAs  | % UAs | Records | % Records | Description
+specific     | 1275 | 68.5% |   3,113 |    14.7%  | Android model+OS+browser, iPhone via FBDV tag
+moderate     |  231 | 12.4% |   5,497 |    26.0%  | iPhone/iPad without FBDV (iOS version+Safari only)
+generic      |  354 | 19.0% |  12,549 |    59.3%  | Desktop browsers, Android "K" model, "Mobile"
+
+KEY FINDING: Most UAs (69%) are specific, but most RECORDS (59%) come from generic UAs.
+This means heavy users disproportionately have generic UAs -- collisions inflate repeat counts.
+
+DEVICE CLASSES
+--------------
+Android: 9,995 records (47.2%)
+iPhone:  6,410 records (30.3%)
+Desktop: 4,559 records (21.6%)
+iPad:      195 records (0.9%)
+
+In-app browsers (Facebook/Instagram/Telegram): 2,680 records (12.7%)
+  -- These are USEFUL because FB injects device model (FBDV) into UA string
+
+SENSITIVITY OF KEY METRICS
+---------------------------
+                           Test-Retest r    Practice Slope
+                           (attempt 1v2)    (within-user, >=5 att)
+Full sample                r=0.231 N=983    slope=0.084 p=0.118
+Specific UAs only          r=0.225 N=560    slope=0.224 p=0.012 *
+Moderate UAs (iPhones)     r=0.253 N=161    slope=-0.013 p=0.905
+Generic UAs                r=0.230 N=251    slope=-0.027 p=0.749
+High+Medium combined       r=0.229 N=732    slope=0.151 p=0.030 *
+
+INTERPRETATION:
+  Test-retest: REMARKABLY STABLE across all subgroups (~0.23). UA noise does NOT
+  inflate test-retest -- collisions add unrelated scores, which should DECREASE r.
+  The fact that r stays the same suggests collisions are rare among 2-attempt users.
+
+  Practice effect: EMERGES in specific UAs (slope=+0.22/attempt, p=0.012).
+  The full-sample null result (p=0.118) was a COLLISION ARTIFACT: generic UAs with
+  many "attempts" are actually different people, washing out real practice gains.
+  When restricted to identifiable individuals, there IS a small practice effect.
+
+HEAVY USER ANALYSIS (>=50 attempts)
+-------------------------------------
+57 UAs with >=50 attempts
+  Genuine-looking: 20 (35%)
+  Suspicious (likely collisions): 37 (65%)
+  
+Suspicious criteria: high hour entropy (activity spread across all 24h),
+  bimodal time patterns (day + night), or many impossibly fast submissions.
+  
+Records in suspicious heavy-user UAs: 13,001 (61.5% of all records!)
+Records in genuine heavy-user UAs: 1,754
+
+CONFIDENCE ASSESSMENT
+---------------------
+High confidence (single person):  ~15% of records
+  - Specific Android models + unique browser version combos
+  - iPhones via Facebook in-app browser (FBDV tag)
+  
+Moderate confidence:              ~26% of records  
+  - iPhones with specific iOS version (limited collision risk since 
+    iOS version space is large, but not impossible)
+
+Low confidence (possible collision): ~59% of records
+  - Desktop browsers (OS + browser version is NOT person-specific)
+  - Generic Android ("K" model = privacy-masked Android 13+)
+  - Very heavy users almost always fall here
+
+IMPLICATIONS FOR B1 FINDINGS:
+  1. Test-retest r=0.231 is ROBUST -- not inflated by collisions
+  2. "No practice effect" was WRONG for real individuals -- specific UAs show
+     slope=+0.22/attempt (p=0.012). Collisions masked this in the full sample.
+  3. Personal best at attempt 2-3 is consistent with the small positive practice slope.
+  4. Heavy users (>=50 att) are mostly multi-person collisions, not single individuals.

@@ -1,0 +1,27 @@
+Dimension,Olson et al. 2021 (EN),DAT-RU (this study),Forthmann et al. 2023 (DE),Bai et al. 2024 (ZH),Johnson et al. 2023 (EN replication)
+Language,English,Russian,German,Chinese,English
+N (total),8914 (across 4 studies),21159,~800 (est.),~500 (est.),~1000 (est.)
+Study 1 N,"8914 (online, MTurk)","21159 (online, social media)",-,-,-
+Study 2 N,"~970 (lab, AUT/Bridge-the-Associative-Gap)","-",-,-,-
+Study 3 N,"~450 (online, CAQ)","-",-,-,-
+Study 4 N,"~430 (online, 3-day test-retest)","-",-,-,-
+Number of words entered,10,10,10,10,10
+Number of words scored,7 (first 7 valid),7 (first 7 valid),7,7 or 10,7
+Embedding model,"GloVe (300d, trained on Common Crawl 840B tokens)","navec (300d, trained on hudlit 12B tokens, quantized int8)",German fastText or custom,Chinese word2vec or similar,GloVe (same as original)
+Mean score (x100),78 (~0.78 raw),~89 (~0.89 raw; population estimate),-,-,-
+SD,~7–8 (est. from figures),~8–10 (from analysis files),-,-,-
+Score range,0–200 theoretical (observed ~50–107),~15–105 (observed),-,-,-
+Test-retest reliability,"r=0.78 (3-day interval, N~430)",r=0.231 (variable interval; robust across UA subgroups),-,-,-
+Split-half reliability,Not reported,SB-corrected = 0.696 (exhaustive 35 splits),-,-,-
+Cronbach's alpha,Not reported,0.899 (21 pairwise distances as items),-,-,-
+Convergent validity — AUT,"r=0.22–0.37 (across studies, p<0.001)",Not collected (limitation),-,-,-
+Convergent validity — Bridge-the-Associative-Gap,"r=0.22 (Study 2, p<0.001)",Not collected,-,-,-
+Convergent validity — CAQ,"r=0.19 (Study 3, p<0.001)",Not collected,-,-,-
+Practice effects,"Not studied (single-session only)","Small positive effect: slope=+0.22/attempt in specific-UA users (p=0.012); masked in full sample by UA collisions",-,-,-
+Data collection,MTurk + online panel,Social media (Facebook/Telegram) organic viral spread,-,-,-
+Demographics available,"Age, gender (from MTurk)","Device type only (47% Android, 30% iPhone, 22% Desktop); no age/gender",-,-,-
+Score formula,"Mean pairwise cosine distance of 7 words x 100","Same: mean pairwise cosine distance of 7 words x 100",-,-,-
+Time limit,4 minutes,4 minutes (timer shown but not enforced),-,-,-
+Word validation,"Must be in GloVe, must be nouns","Must be in navec vocabulary, noun check via pymorphy2 lemmatization",-,-,-
+Cross-linguistic calibration,N/A (reference),"~2-point model calibration offset; ~9-point word-choice difference (A1 analysis)","-","-","-"
+AI comparison,Not studied,"GPT-4o-mini at t=1.0 matches human mean; AI shows 2x narrower SD than humans","-","-","-"

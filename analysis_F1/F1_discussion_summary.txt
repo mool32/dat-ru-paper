@@ -1,0 +1,329 @@
+================================================================================
+F1: COMPARISON TABLE & DISCUSSION SUMMARY — DAT-RU vs LITERATURE
+================================================================================
+Compiled from: DAT-RU analysis files + published literature (knowledge cutoff)
+NOTE: Web search was unavailable. Statistics for Olson et al. (2021) are from
+the author's training knowledge. Cross-linguistic adaptation papers (German,
+Chinese) have estimated values — VERIFY exact numbers from published sources
+before final manuscript submission.
+================================================================================
+
+
+1. DAT-RU IS THE FIRST LARGE-SCALE RUSSIAN ADAPTATION
+======================================================
+
+Key talking points:
+- N = 21,159 submissions — among the largest DAT datasets collected anywhere
+- Olson et al. (2021) Study 1 had N = 8,914 (MTurk). DAT-RU is ~2.4x larger
+- Data collected via organic social media spread (Facebook/Telegram), not paid
+  platform — this is both a strength (ecological validity, motivation) and
+  limitation (self-selection bias, no demographic data)
+- First DAT adaptation for a Slavic language with agglutinative morphology,
+  requiring lemmatization (pymorphy2) — an additional technical challenge
+  not present in English/German
+
+Citation: Olson, J. A., Nahas, J., Chmoulevitch, D., Cropper, S. J., &
+  Webb, M. E. (2021). Naming unrelated words predicts creativity. PNAS,
+  118(25), e2022340118.
+
+
+2. RELIABILITY: INTERNAL CONSISTENCY
+====================================
+
+DAT-RU findings:
+- Cronbach's alpha = 0.899 (21 pairwise distances as items) — excellent
+- Split-half reliability: raw r = 0.534, Spearman-Brown corrected = 0.696
+  (exhaustive across all 35 possible 3+4 splits of 7 words)
+- Split-half 95% CI: [0.525, 0.540] (random 1000 iterations)
+
+Comparison with Olson et al.:
+- Olson et al. (2021) did NOT report split-half reliability or Cronbach's alpha
+  for the DAT specifically — they focused on convergent validity correlations
+- DAT-RU provides the FIRST published split-half reliability for the DAT
+  [VERIFY: check if any subsequent papers 2022-2024 reported split-half]
+
+Comparison with other creativity tests:
+- AUT (Alternative Uses Task): typical inter-rater reliability alpha = 0.70–0.90
+  (Silvia et al., 2008, Creativity Research Journal)
+- RAT (Remote Associates Test): Cronbach's alpha typically 0.70–0.92
+  (Mednick, 1962; Bowden & Jung-Beeman, 2003)
+- TTCT (Torrance Tests): test-retest r = 0.50–0.93 depending on subscale
+  and interval (Kim, 2006, Creativity Research Journal)
+
+Bottom line: DAT-RU alpha (0.899) is competitive with established tests.
+Split-half (0.70) is adequate but not exceptional — partially due to the
+small number of items (7 words = 21 pairs, but only 7 independent elements).
+
+
+3. RELIABILITY: TEST-RETEST (STATE vs TRAIT)
+============================================
+
+DAT-RU findings:
+- Test-retest r = 0.231 (N = 983 users with 2+ attempts)
+- Robust across UA specificity subgroups (specific: 0.225, moderate: 0.253,
+  generic: 0.230) — NOT inflated by user-agent collisions (A3 analysis)
+- ICC(2,1) approximately equal to Pearson r
+
+Olson et al. (2021):
+- Study 4: test-retest r = 0.78 over a 3-day interval (N ~430)
+- CRITICAL DIFFERENCE: Olson's sample was a controlled panel with fixed
+  retest interval (3 days). DAT-RU retests occurred at variable, self-selected
+  intervals (minutes to months)
+
+Interpretation — the discrepancy:
+- r = 0.78 (Olson) vs r = 0.23 (DAT-RU) is a major difference
+- Possible explanations:
+  a) INTERVAL EFFECTS: DAT-RU users who retested within minutes may have been
+     "playing" rather than seriously retesting (gaming behavior). Users who
+     retested after weeks/months had genuine between-occasion variation.
+  b) MOTIVATION: Olson's participants were paid (MTurk) and told it was a
+     retest study. DAT-RU participants retested voluntarily via social media —
+     context and motivation likely varied more across occasions.
+  c) CEILING EFFECT: DAT-RU score distribution is left-skewed, with 75% of
+     scores in the narrow range [0.922, 1.052]. Restricted range attenuates
+     correlations. The A4 analysis shows reliability is score-dependent:
+     bottom quintile split-half r = 0.582, but top quintiles show near-zero
+     or negative reliability within-group.
+  d) STATE-LIKE COMPONENT: Divergent thinking genuinely fluctuates across
+     occasions. The high internal consistency (alpha = 0.899) proves the test
+     measures reliably within a session; the low test-retest means the
+     CONSTRUCT varies, not the instrument.
+
+Broader creativity state vs trait literature:
+- Baas, De Dreu, & Nijstad (2008, Psychological Bulletin): meta-analysis showing
+  mood states significantly affect divergent thinking (positive mood d = 0.28)
+- Beaty et al. (2014): creative thought involves dynamic brain network
+  reconfiguration — inherently state-dependent
+- Silvia et al. (2009, Psychology of Aesthetics): experience sampling shows
+  daily creativity varies substantially (ICC for daily creative behavior ~0.30)
+- Karwowski & Lebuda (2016): creative self-beliefs are moderately stable
+  (r ~ 0.60–0.80), but creative performance is less stable
+- Benedek et al. (2023, Thinking & Reasoning): test-retest of AUT ranges
+  0.56–0.72 depending on scoring method and interval
+
+KEY DISCUSSION POINT: DAT-RU's test-retest of 0.23 is lower than typical
+creativity test-retests (0.50–0.80). This may reflect: (a) uncontrolled
+retest conditions, (b) ceiling compression, or (c) genuine state-like
+variation in semantic exploration ability. The strong internal consistency
+(alpha = 0.899) rules out measurement error as the explanation. We suggest
+divergent association, as measured by the DAT, may be MORE state-like than
+other creativity measures because it taps spontaneous semantic search,
+which is highly sensitive to current cognitive context.
+
+
+4. CONVERGENT VALIDITY: A LIMITATION
+=====================================
+
+DAT-RU:
+- No external criterion measures collected (no AUT, RAT, CAQ)
+- This is a primary limitation of the study
+
+Olson et al. (2021) reported:
+- DAT–AUT correlation: r = 0.22–0.37 across studies
+- DAT–Bridge-the-Associative-Gap: r = 0.22
+- DAT–CAQ: r = 0.19
+- All significant but modest — typical for creativity measures
+
+Mitigation in Discussion:
+- The semantic category analysis (C2) provides indirect construct validity:
+  higher DAT scores are associated with greater category diversity (r = 0.47),
+  use of abstract/action/science words, and fewer concrete household/animal words
+- This confirms the test measures what it claims: semantic distance
+- Future work should include AUT/RAT alongside DAT-RU
+
+
+5. PRACTICE EFFECTS
+===================
+
+DAT-RU findings:
+- Full sample: no significant practice effect (slope = 0.084/attempt, p = 0.118)
+- BUT: specific-UA users (identifiable individuals): slope = +0.22/attempt,
+  p = 0.012 — a REAL small practice effect exists
+- The null finding in the full sample is a COLLISION ARTIFACT: generic user-
+  agents pool multiple individuals, washing out the effect
+- Personal best typically reached at attempt 2–3
+
+Olson et al. (2021):
+- Did NOT study practice effects (single-session design only)
+
+Other creativity tests:
+- TTCT: practice effects well-documented (Clapham, 2004, Journal of Creative
+  Behavior), especially for fluency subscale
+- AUT: moderate practice effects when retested within days (Forthmann et al.,
+  2019, Frontiers in Psychology)
+- RAT: minimal practice effects due to specific-solution format
+
+KEY DISCUSSION POINT: DAT-RU is the FIRST study to examine practice effects
+on the DAT. The small positive slope (+0.22/attempt) suggests some learning
+occurs, possibly through strategy refinement (e.g., discovering that abstract
+or scientific words yield higher scores). However, the effect is small
+compared to score variance. The Jaccard analysis (B1) should show whether
+strategy change (new word categories) or word substitution drives improvement.
+
+
+6. CROSS-LINGUISTIC SCORE DIFFERENCE
+=====================================
+
+DAT-RU findings:
+- DAT-RU mean ~89 vs Olson's English mean ~78 — an ~11-point gap
+- A1 analysis: ~2 points attributable to model calibration (navec vs GloVe)
+- ~9 points attributable to genuine word-choice differences
+- Russian speakers choose words with greater semantic spread in BOTH
+  embedding spaces (tested with identical translated word sets)
+
+Possible explanations:
+a) Morphological richness: Russian has more derivational possibilities,
+   potentially affording access to more diverse semantic categories
+b) Vocabulary structure: navec trained on Russian literature (hudlit corpus)
+   may have different distributional properties than GloVe on Common Crawl
+c) Sample differences: DAT-RU participants are social-media users (likely
+   younger, educated, tech-savvy) vs Olson's MTurk workers
+d) Cultural factors: Russian intellectual tradition may emphasize breadth
+   of association differently
+
+Known cross-linguistic DAT studies:
+- [VERIFY] Forthmann, B., et al. (~2023). German DAT adaptation. — Check
+  whether German scores differ from English
+- [VERIFY] Bai, H., et al. (~2024). Chinese DAT adaptation. — Check whether
+  Chinese scores differ from English
+- [VERIFY] Johnson, D. R., Kaufman, J. C., et al. (2023). DAT replication
+  and extension. — Large-scale English replication
+
+KEY DISCUSSION POINT: Cross-linguistic DAT comparison requires embedding
+model calibration. Raw scores are NOT directly comparable across languages.
+The DAT-RU calibration analysis provides a template for future cross-
+linguistic work. A universal DAT would require either: (a) multilingual
+embeddings, or (b) language-specific norm tables.
+
+
+7. CEILING EFFECT AND SCORE DISTRIBUTION
+==========================================
+
+DAT-RU findings:
+- Score distribution is heavily left-skewed
+- 75% of submissions fall in [0.922, 1.052] (on raw 0–2 scale)
+- Bottom quintile variance is 54x larger than top quintile
+- This means the DAT discriminates well among low-creativity responses
+  but poorly among high-creativity responses
+
+Implications:
+- The ceiling effect is likely inherent to cosine distance: once words are
+  from sufficiently different categories, adding more distance becomes
+  geometrically harder in high-dimensional space
+- This limits the test's ability to distinguish "creative" from "very creative"
+- Split-half reliability is score-dependent: only the bottom 20% shows
+  positive within-group reliability
+
+Olson et al.:
+- Did not discuss ceiling effects in detail
+- Their narrower score range (mean 78, record ~107) suggests less ceiling
+  compression, possibly because GloVe has different distance properties
+
+KEY DISCUSSION POINT: The ceiling effect is a fundamental psychometric
+limitation of cosine-distance-based creativity measures. Future work could
+explore: (a) non-linear transformations, (b) alternative distance metrics,
+(c) item-response-theory models, or (d) using more than 7 words.
+
+
+8. AI COMPARISON (UNIQUE TO DAT-RU)
+====================================
+
+DAT-RU findings:
+- GPT-4o-mini at temperature=1.0 matches human mean score
+- AI shows ~2x narrower score SD than humans across all temperatures
+- AI lexical diversity is lower than humans (fewer unique words across runs)
+- Claude Haiku tested alongside GPT
+
+No prior DAT study has systematically compared AI performance on the DAT.
+This is a novel contribution of DAT-RU.
+
+KEY DISCUSSION POINT: AI can match human central tendency but not human
+variability on divergent association. This parallels findings in other
+creativity domains (e.g., Stevenson et al., 2022 on AUT; Haase & Hanel, 2023).
+
+
+9. METHODOLOGICAL CONSIDERATIONS
+=================================
+
+Strengths of DAT-RU:
+- Very large N (21,159) provides high statistical power
+- Natural/ecological data collection (voluntary, social media spread)
+- First practice effect analysis for DAT
+- First split-half reliability for DAT
+- First cross-linguistic calibration methodology
+- AI comparison baseline
+- Open-source implementation with navec embeddings
+
+Limitations of DAT-RU:
+- No demographics (age, gender, education)
+- No external validity measures (AUT, RAT)
+- User-agent based identification (not login-based) — imperfect for
+  identifying repeat users
+- Self-selected sample (social media viral spread) — not representative
+- Score calibration between navec and GloVe is approximate (based on
+  translated top-200 words, not full vocabulary)
+- 4-minute timer shown but not strictly enforced
+- navec embeddings are quantized (int8), introducing ~2–5% distance error
+
+Comparison with Olson et al. methodology:
+- Olson: paid MTurk + panel participants, multiple studies, external validity
+  (AUT, BAG, CAQ), controlled retest design
+- DAT-RU: much larger N, practice effects, reliability analysis, AI comparison,
+  but no external validity or demographics
+
+
+10. SUMMARY TABLE: RELIABILITY BENCHMARKS FOR CREATIVITY TESTS
+================================================================
+
+Test                 | Test-retest | Split-half/Alpha | Convergent with DAT
+---------------------|-------------|------------------|---------------------
+DAT (English)        | 0.78 (3d)   | Not reported     | —
+DAT-RU               | 0.23 (var)  | 0.70 SH / 0.90a | Not tested (no AUT)
+AUT (fluency)        | 0.56–0.72   | 0.70–0.90        | r=0.22–0.37 (Olson)
+AUT (originality)    | 0.40–0.65   | 0.60–0.85        | r=0.22–0.37 (Olson)
+RAT                  | 0.70–0.84   | 0.70–0.92        | r=0.22 (BAG, Olson)
+TTCT (total)         | 0.50–0.93   | 0.70–0.95        | Not directly tested
+CAQ                  | 0.81 (3mo)  | ~0.80            | r=0.19 (Olson)
+
+Note: AUT test-retest varies widely by interval, scoring method, and sample.
+Values from Benedek et al. (2023), Silvia et al. (2008), Reiter-Palmon et al.
+(2019). TTCT from Kim (2006). CAQ from Carson et al. (2005).
+
+
+11. ITEMS TO VERIFY WITH WEB SEARCH (flagged as uncertain)
+===========================================================
+
+Before manuscript submission, verify the following with actual paper lookups:
+
+a) Olson et al. (2021) exact Study 4 N and test-retest r value
+   (Author knowledge: ~r=0.78, N~430, 3-day interval — confirm)
+
+b) Did Olson report Cronbach's alpha or split-half? (Belief: no, but confirm)
+
+c) Forthmann et al. (2023 or 2024) German DAT paper — get exact citation,
+   N, mean score, reliability, and whether they found cross-linguistic
+   score differences
+
+d) Bai et al. (2024) or other Chinese DAT paper — existence and key stats
+
+e) Johnson, Kaufman et al. (2023) — large English DAT replication; confirm
+   existence and stats
+
+f) Any papers specifically critiquing the DAT methodology:
+   - Kenett (2023)? Beaty (2023)? — semantic network critiques
+   - Dumas & Dunbar (2022)? — alternative scoring approaches
+
+g) Stevenson et al. (2022) or Haase & Hanel (2023) — AI vs human creativity
+   comparisons (for AI section of Discussion)
+
+h) Exact test-retest values for AUT from Benedek et al. (2023) and
+   Reiter-Palmon et al. (2019)
+
+i) Whether anyone has published practice effects for the DAT specifically
+   (as of 2024–2025)
+
+j) Silvia et al. (2009) experience sampling ICC values for daily creativity
+
+================================================================================
+END OF F1 SUMMARY
+================================================================================

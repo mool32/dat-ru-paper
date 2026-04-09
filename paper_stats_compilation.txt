@@ -1,0 +1,441 @@
+================================================================================
+PAPER STATISTICS COMPILATION — DAT-RU
+================================================================================
+Compiled from analysis files A1–F1
+================================================================================
+
+
+================================================================================
+STUDY 1: PSYCHOMETRIC PROPERTIES OF DAT-RU
+================================================================================
+
+--- 1.1 SAMPLE DESCRIPTIVES ---
+Total submissions: N = 21,159
+Unique user_agents: reported in B1 (proxy for unique users)
+Score range (raw): [0.1455, 1.0518] (rescaled: ~15–105)
+Score mean: ~89 (rescaled x100)
+Score SD: ~8–10 (from analysis files)
+Score Q25 = 0.9223, Median = 0.9567, Q75 = 0.9806 (raw scale)
+Full-sample variance: 0.005447
+
+Device breakdown (A3):
+  Android: 9,995 records (47.2%)
+  iPhone:  6,410 records (30.3%)
+  Desktop: 4,559 records (21.6%)
+  iPad:      195 records (0.9%)
+  In-app browsers (Facebook/Instagram/Telegram): 2,680 records (12.7%)
+
+
+--- 1.2 INTERNAL CONSISTENCY (A4) ---
+Cronbach's alpha = 0.899 (21 pairwise distances as items)
+
+Exhaustive split-half (all 35 splits of 7 words into 3+4):
+  Mean split-half r = 0.5336
+  Spearman-Brown corrected = 0.6959
+  Range of r across splits: [0.5072, 0.5548]
+
+Random split-half (1000 iterations):
+  Mean split-half r = 0.5321
+  Spearman-Brown corrected = 0.6946
+  95% CI of r: [0.5245, 0.5397]
+
+Score-dependent reliability by quintile:
+  Q1 (n=4232): raw r = 0.5816, SB = 0.7354, alpha = 0.9327
+  Q2 (n=4232): raw r = -0.4623, SB = -1.7198, alpha = -4.9573
+  Q3 (n=4231): raw r = -0.4142, SB = -1.4139, alpha = -12.2415
+  Q4 (n=4232): raw r = -0.3256, SB = -0.9655, alpha = -14.6119
+  Q5 (n=4232): raw r = -0.1113, SB = -0.2505, alpha = -1.9391
+
+Ceiling effect:
+  Q1 variance = 0.009776
+  Q5 variance = 0.000182
+  Variance ratio Q1/Q5 = 53.8x
+
+
+--- 1.3 TEST-RETEST RELIABILITY (B1, A3) ---
+N users with >=2 attempts: 983
+Pearson r(attempt1, attempt2) = 0.264 (raw), 0.231 (adjusted, from A2)
+  [A2 adjusted r = 0.2314]
+Spearman rho reported in B1 code (computed at runtime)
+ICC(2,1) approximately equal to Pearson r
+Mean score change (attempt2 - attempt1): reported via paired t-test in B1
+
+Robustness across UA specificity (A3):
+  Full sample:          r = 0.231, N = 983
+  Specific UAs only:    r = 0.225, N = 560
+  Moderate UAs (iPhones): r = 0.253, N = 161
+  Generic UAs:          r = 0.230, N = 251
+  High+Medium combined: r = 0.229, N = 732
+
+
+--- 1.4 MEASUREMENT VALIDITY: A2 SUMMARY TABLE ---
+Test-retest (attempt1 vs attempt2):
+  r_adjusted = 0.2314, r_raw = 0.2640, N = 983
+  Verdict: Preserves (same sign, |delta_r| < 0.05)
+
+Word frequency (log freq vs score):
+  r_adjusted = -0.0505, r_raw = -0.0575, N = 21,159
+  Verdict: Preserves
+
+Time-on-task (time vs score):
+  r_adjusted = 0.1029, r_raw = 0.1209, N = 20,946
+  Verdict: Preserves
+
+
+================================================================================
+STUDY 2: PRACTICE EFFECTS AND LEARNING
+================================================================================
+
+--- 2.1 PRACTICE EFFECT — WITHIN-SUBJECT SLOPES (B1, A3) ---
+Full sample (all UAs, >=5 attempts):
+  Mean within-subject slope: 0.084 score/attempt, p = 0.118 (n.s.)
+  Practice slope from B1 code (computed at runtime)
+
+Specific UAs only (A3):
+  Slope = +0.224 score/attempt, p = 0.012 *
+  N = 560 (users with >=5 specific-UA attempts)
+
+Moderate UAs (iPhones):
+  Slope = -0.013, p = 0.905
+
+Generic UAs:
+  Slope = -0.027, p = 0.749
+
+High+Medium combined:
+  Slope = +0.151, p = 0.030 *
+
+Interpretation: Full-sample null result is a COLLISION ARTIFACT.
+Real practice effect emerges in identifiable individuals.
+
+
+--- 2.2 PRACTICE EFFECT — RANDOM SAMPLING VS LEARNING (B2) ---
+Analysis of specific-UA users with >=5 attempts:
+  Compared real personal-best curves vs i.i.d. simulated (1000 iterations)
+  Slope analysis, warm-up test (attempts 1-3 vs 4-6)
+  Paired t-tests at checkpoints (attempts 5, 10, 15, 20)
+  Slope percentile analysis (real slope vs i.i.d. null distribution)
+  (Exact numbers computed at runtime from B2 script — see B2 plots)
+
+
+--- 2.3 JACCARD STRATEGY ANALYSIS (B1) ---
+Consecutive attempt pairs analyzed: from users with >=5 attempts
+Mean Jaccard similarity (consecutive attempts): computed at runtime
+Jaccard = 0 (complete word restart): percentage computed at runtime
+Jaccard > 0.5 (optimizer, >3 shared words): percentage computed at runtime
+Jaccard vs score_change: r and p computed at runtime
+User-level strategies: Restarter (J<0.1), Mixed (0.1-0.3), Optimizer (J>0.3)
+
+
+--- 2.4 INCUBATION EFFECT (B3) ---
+Total records: 21,159
+Specific-UA users with >=5 attempts: 117
+Consecutive pairs analyzed: 909
+
+Within-session (<10 min): mean delta_score = +0.387 (n=727)
+Between-session (>6 hours): mean delta_score = -0.809 (n=93)
+Welch t = 1.685, p = 0.0945, Cohen's d = -0.178
+
+Regression (controlling for attempt number):
+  Intercept:      B = 0.880, SE = 0.404, t = 2.180, p = 0.030, 95% CI [0.088, 1.672]
+  log_interval:   B = -0.488, SE = 0.245, t = -1.989, p = 0.047, 95% CI [-0.970, -0.006]
+  attempt_n:      B = -0.054, SE = 0.044, t = -1.219, p = 0.223, 95% CI [-0.141, 0.033]
+  Partial corr(log_interval, delta_score | attempt_n): r = -0.066, p = 0.047
+
+Classic incubation (first of new session vs last of previous):
+  Session transitions: 93
+  Mean delta_score: -0.809
+  t = -1.226, p = 0.223
+
+Session-level trends:
+  Cross-session slope: mean = 0.913, t = 2.490, p = 0.020
+  Within-session slope: mean = 0.394, t = 2.493, p = 0.014
+
+Time windows:
+  A: No break (<10 min):   mean = +0.387, SD = 7.035, n = 727, median = +0.447
+  B: Short break (1-6h):   mean = +0.014, SD = 6.890, n = 49,  median = -0.430
+  C: Overnight (8-16h):    mean = -0.318, SD = 7.541, n = 31,  median = -0.672
+  ANOVA: F = 0.203, p = 0.816
+
+
+================================================================================
+STUDY 3: SEMANTIC STRUCTURE AND WORD PROPERTIES
+================================================================================
+
+--- 3.1 CATEGORY DIVERSITY AND SCORE (C2) ---
+Total submissions: 21,159
+Submissions with >=5 categorized words: 3,300
+Top 500 words categorized: 499/500
+
+Score ~ Category Diversity:
+  Pearson r = 0.4726, p = 2.97e-183
+  Spearman rho = 0.3342, p = 6.32e-87
+
+Mean score by number of unique categories:
+  1 category:  M = 57.97, SD = 5.77, n = 84
+  2 categories: M = 72.42, SD = 8.74, n = 149
+  3 categories: M = 80.72, SD = 6.82, n = 597
+  4 categories: M = 83.22, SD = 6.72, n = 1259
+  5 categories: M = 84.87, SD = 6.58, n = 962
+  6 categories: M = 86.13, SD = 8.25, n = 228
+  7 categories: M = 85.62, SD = 10.18, n = 21
+
+Category frequency (top 5):
+  OBJECT_HOME: 4,565 occurrences
+  NATURE:      3,330
+  ANIMAL:      1,807
+  OBJECT_TECH: 1,450
+  PLACE:       1,448
+
+Highest-scoring categories (mean score):
+  ACTION_PROCESS: M = 89.00, SD = 9.14, n = 346
+  SCIENCE:        M = 86.94, SD = 6.46, n = 506
+  ABSTRACT:       M = 86.80, SD = 8.23, n = 942
+
+Lowest-scoring categories:
+  ANIMAL:      M = 82.26, SD = 7.03, n = 1516
+  OBJECT_TECH: M = 82.26, SD = 6.22, n = 1224
+  NATURE:      M = 82.45, SD = 7.19, n = 2190
+
+Most distant category pairs:
+  PERSON <-> SCIENCE:        1.0373
+  EMOTION <-> SCIENCE:       1.0343
+  ABSTRACT <-> OBJECT_TECH:  1.0000
+
+Most category-differentiated submissions (top 10% vs bottom 10%):
+  Overrepresented in top 10%:  ABSTRACT (+0.165), ACTION_PROCESS (+0.074), PERSON (+0.061), SCIENCE (+0.058)
+  Overrepresented in bottom 10%: OBJECT_HOME (+0.113), NATURE (+0.097), ANIMAL (+0.084)
+
+
+--- 3.2 WORD FREQUENCY EFFECTS (C1) ---
+(Statistics computed at runtime from C1 script)
+
+Corpus freq vs DAT freq (log-log):
+  r, slope, p computed at runtime
+
+Corpus freq vs score contribution:
+  r, slope, p computed at runtime
+
+Per-submission: avg corpus freq of 7 words vs score:
+  Pearson r, Spearman rho, p computed at runtime
+
+Cohen's d (rare vs common word users, Q1 vs Q4 of avg log corpus freq):
+  d computed at runtime
+
+Zipf exponents:
+  DAT Zipf alpha and corpus Zipf alpha computed at runtime
+
+
+--- 3.3 ANCHOR/POSITIONAL EFFECTS (C3) ---
+(All statistics computed at runtime from C3 script)
+
+Position 1 vs positions 2-7:
+  Mean distance to others, LOO contribution, word length, log freq, centroid dist
+
+First word isolation vs DAT score:
+  Pearson r computed at runtime
+
+Common vs uncommon first word:
+  t, p, Cohen's d computed at runtime
+
+Sequential divergence (consecutive pairwise distances, transitions 1->2 through 6->7):
+  Linear trend slope, r, p computed at runtime
+
+Risky first word (bottom 25% corpus frequency):
+  Risky vs safe mean DAT, t, p, d computed at runtime
+  Risky x time_spent interaction (4-group ANOVA F, p) computed at runtime
+
+
+--- 3.4 SCORE DECOMPOSITION (C4) ---
+N valid: 21,159
+
+Correlations with DAT score:
+  mean_dist:  r = 0.9639, p = 0.0
+  sd_dist:    r = -0.3668, p = 0.0
+  cv_dist:    r = -0.6348, p = 0.0
+  min_dist:   r = 0.7643, p = 0.0
+  max_dist:   r = 0.7452, p = 0.0
+  range_dist: r = -0.3088, p = 0.0
+  skewness:   r = 0.0425, p = 6.47e-10
+  kurtosis:   r = 0.0198, p = 0.0040
+
+Partial correlations (controlling for mean distance):
+  min_dist given mean:  r = 0.1561, p = 1.41e-115
+  sd_dist given mean:   r = -0.0974, p = 8.52e-46
+  cv_dist given mean:   r = 0.1100, p = 5.42e-58
+
+Bottleneck (min_dist) mean improvement: 0.0111
+
+Distance topology counts:
+  Uniform:  18,982 (89.7%)
+  Random:    1,194 (5.6%)
+  Star:        979 (4.6%)
+  Bimodal:       4 (0.02%)
+
+Topology mean scores:
+  Uniform: 89.24
+  Star:    77.45
+  Random:  75.05
+  Bimodal: 60.92
+
+Top 5% topology distribution:
+  Uniform: 95.2%, Random: 4.6%, Star: 0.2%
+Bottom 5% topology distribution:
+  Random: 49.0%, Star: 30.7%, Uniform: 19.9%, Bimodal: 0.4%
+
+
+================================================================================
+SUPPLEMENTARY STATISTICS
+================================================================================
+
+--- S1. CROSS-LINGUISTIC CALIBRATION (A1) ---
+Word pairs analyzed: 195 valid (from top 200 DAT-RU words translated)
+Pairwise comparisons: 18,915 pairs
+
+Distance correlation (pairwise):
+  Pearson r = 0.664
+  Spearman rho = 0.632
+  R-squared = 0.440
+
+Distance calibration:
+  EN mean distance: 0.886
+  RU mean distance: 0.906
+  Ratio (RU/EN): 1.023 (~2.3% larger in Russian)
+  Linear mapping: RU = 0.728 * EN + 0.261
+
+DAT score simulation (same words, different models, 1000 random 7-word sets):
+  EN mean score: 88.70 +/- 3.62
+  RU mean score: 90.70 +/- 3.69
+  Difference: +2.00 points
+  Cohen's d = 0.72, p < 1e-91
+  Score correlation: r = 0.708
+
+Conclusion: ~2 points model calibration, ~9 points word-choice difference
+
+
+--- S2. UA SENSITIVITY ANALYSIS (A3) ---
+UA categories:
+  Specific: 1,275 UAs (68.5%), 3,113 records (14.7%)
+  Moderate: 231 UAs (12.4%), 5,497 records (26.0%)
+  Generic:  354 UAs (19.0%), 12,549 records (59.3%)
+
+Heavy users (>=50 attempts): 57 UAs
+  Genuine-looking: 20 (35%)
+  Suspicious (likely collisions): 37 (65%)
+  Records in suspicious heavy-user UAs: 13,001 (61.5%)
+  Records in genuine heavy-user UAs: 1,754
+
+Confidence assessment:
+  High confidence (single person): ~15% of records
+  Moderate confidence: ~26% of records
+  Low confidence (possible collision): ~59% of records
+
+
+--- S3. TIME-ON-TASK ANALYSIS (D3) ---
+(All statistics computed at runtime from D3 script)
+
+Time spent (after cleaning, 10s-1800s):
+  Mean, Median, SD, Min, Max, Skewness, Percentiles computed at runtime
+
+Score vs Time:
+  Linear model: R-squared, slope, p computed at runtime
+  Quadratic model: R-squared, F-test for quadratic term computed at runtime
+  Inverted-U: quadratic peak in seconds computed at runtime
+  LOWESS peak computed at runtime
+
+Time per word: Mean, Median computed at runtime
+
+Device type ANOVA (score across devices): F, p computed at runtime
+Device type ANOVA (time across devices): F, p computed at runtime
+
+Temporal trends (Spearman):
+  Score vs day: rho, p computed at runtime
+  Time vs day: rho, p computed at runtime
+
+
+--- S4. THEORETICAL CEILING (E1) ---
+Theoretical ceiling (Random Restart method):
+  Raw score: 110.50
+  Adjusted score: 115.03
+
+Greedy method:
+  Raw: 110.22, Adjusted: 114.47
+
+Common-words ceiling (from ~180 common Russian nouns):
+  Raw: 101.72, Adjusted: 98.79
+
+Random baseline (10,000 random 7-word sets):
+  Raw mean: 86.72, SD: 5.65, Max: 102.49
+  Adjusted mean: 78.32, SD: 6.41, Max: 100.09
+
+Percentiles:
+  Mean human as % of ceiling: 79.5%
+  Best human as % of ceiling: 94.8%
+  Common-words ceiling as % of theoretical: 92.1%
+
+
+--- S5. OPTIMAL STOPPING (E5) ---
+(All statistics computed at runtime from E5 script)
+
+i.i.d. theory for expected max order statistics:
+  E[max(Z_1)] = 0, E[max(Z_1..Z_5)], E[max(Z_1..Z_10)], E[max(Z_1..Z_50)] computed
+
+Marginal gains (all UAs, >=10 attempts):
+  Observed vs theoretical delta_PB at attempts 2,3,5,10,20,50 computed at runtime
+
+Cost of persistence (users with >=50 attempts):
+  PB at attempt 10, 50, final
+  Time invested at each milestone
+  Gain 11->50 and 51->final in points and points/hour
+  Computed at runtime
+
+Stopping recommendations (under i.i.d.):
+  delta_PB < 0.5, 0.25, 0.1 thresholds computed at runtime
+
+Percentage of max gain reached at each attempt number:
+  50%, 75%, 90%, 95%, 99% milestones computed at runtime
+
+
+--- S6. COMPARISON WITH LITERATURE (F1) ---
+
+                        DAT (English)     DAT-RU (this study)
+N (total)               8,914             21,159
+Mean score (x100)       ~78               ~89
+Test-retest r           0.78 (3-day)      0.231 (variable interval)
+Split-half (SB)         Not reported      0.696
+Cronbach's alpha        Not reported      0.899
+Convergent (AUT)        r = 0.22-0.37     Not collected
+Practice effects        Not studied       slope = +0.22/attempt (p=0.012, specific UAs)
+AI comparison           Not studied       GPT-4o-mini at t=1.0 matches human mean; AI ~2x narrower SD
+
+Reliability benchmarks (from F1 comparison table):
+  Test        | Test-retest | Split-half/Alpha | Convergent w/ DAT
+  DAT (EN)    | 0.78 (3d)   | Not reported     | --
+  DAT-RU      | 0.23 (var)  | 0.70 SH / 0.90a | Not tested
+  AUT (flu)   | 0.56-0.72   | 0.70-0.90        | r=0.22-0.37
+  AUT (orig)  | 0.40-0.65   | 0.60-0.85        | r=0.22-0.37
+  RAT         | 0.70-0.84   | 0.70-0.92        | r=0.22 (BAG)
+  TTCT (tot)  | 0.50-0.93   | 0.70-0.95        | Not tested
+  CAQ         | 0.81 (3mo)  | ~0.80            | r=0.19
+
+
+================================================================================
+NOTES ON RUNTIME-COMPUTED STATISTICS
+================================================================================
+
+Several analyses (B1, B2, C1, C3, D3, E5) only print their key statistics
+when the Python scripts are executed. The scripts were read in full and their
+logic documented above. To obtain exact printed values:
+
+  python analysis_B1/B1_analysis.py
+  python analysis_B2/analysis_B2.py
+  python analysis_C1/c1_word_frequency.py
+  python analysis_C3/anchor_analysis.py
+  python analysis_D3/d3_analysis.py
+  python analysis_E5/E5_optimal_stopping.py
+
+The statistics that ARE available from summary files (A1, A2, A3, A4, B3,
+C2, C4, E1, F1) are reported with exact values above.
+
+================================================================================
+END OF COMPILATION
+================================================================================

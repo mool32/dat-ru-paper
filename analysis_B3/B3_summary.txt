@@ -1,0 +1,36 @@
+
+=== B3: INCUBATION EFFECT — SUMMARY ===
+
+DATA
+  Total records: 21159
+  Specific-UA users with ≥5 attempts: 117
+  Consecutive pairs analyzed: 909
+
+4b. WITHIN vs BETWEEN SESSION
+  Within-session (<10 min): mean Δscore = 0.387 (n=727)
+  Between-session (>6 hours): mean Δscore = -0.809 (n=93)
+  Welch t = 1.685, p = 0.0945, Cohen's d = -0.178
+
+4c. REGRESSION (controlling for attempt number)
+                 Coef.  Std.Err.         t     P>|t|    [0.025    0.975]
+const         0.880007  0.403647  2.180141  0.029504  0.087815  1.672199
+log_interval -0.488052  0.245437 -1.988505  0.047056 -0.969743 -0.006361
+attempt_n    -0.054127  0.044417 -1.218613  0.223308 -0.141299  0.033045
+  Partial corr(log_interval, Δscore | attempt_n): r = -0.0659, p = 0.0469
+
+4d. CLASSIC INCUBATION (first of new session vs last of previous)
+  Session transitions: 93
+  Mean Δscore: -0.809
+  t = -1.226, p = 0.2233
+
+5. SESSION-LEVEL TRENDS
+  Cross-session slope: mean = 0.913, t = 2.490, p = 0.0201
+  Within-session slope: mean = 0.394, t = 2.493, p = 0.0138
+
+6. TIME WINDOWS
+                           mean       std  count    median
+time_window                                               
+A: No break (<10 min)  0.386570  7.035359    727  0.447049
+B: Short break (1-6h)  0.014436  6.890411     49 -0.429697
+C: Overnight (8-16h)  -0.317887  7.541296     31 -0.672208
+  ANOVA: F = 0.203, p = 0.8161

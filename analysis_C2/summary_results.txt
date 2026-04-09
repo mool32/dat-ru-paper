@@ -1,0 +1,276 @@
+DAT-RU Semantic Category Analysis (C2)
+============================================================
+
+Total submissions: 21159
+Submissions with >=5 categorized words: 3300
+Top 500 words categorized: 499/500
+
+4a. Score ~ Category Diversity
+Pearson r = 0.4726, p = 2.97e-183
+Spearman rho = 0.3342, p = 6.32e-87
+ n_unique_cats  mean_score  std_score  count
+             1   57.971359   5.771655     84
+             2   72.415840   8.740331    149
+             3   80.720067   6.815417    597
+             4   83.224439   6.715533   1259
+             5   84.865973   6.581666    962
+             6   86.125509   8.247357    228
+             7   85.618512  10.179774     21
+
+4b. Category Frequency
+      category  count
+   OBJECT_HOME   4565
+        NATURE   3330
+        ANIMAL   1807
+   OBJECT_TECH   1450
+         PLACE   1448
+          FOOD   1366
+      ABSTRACT   1256
+          BODY    785
+   ART_CULTURE    656
+        PERSON    595
+       SCIENCE    547
+ACTION_PROCESS    357
+       EMOTION    112
+
+4c. Mean Score per Category
+      category  mean_score  std_score    n      sem
+ACTION_PROCESS   89.004219   9.135266  346 0.491115
+       SCIENCE   86.944751   6.461738  506 0.287259
+      ABSTRACT   86.804215   8.230626  942 0.268168
+        PERSON   85.700269   9.698257  569 0.406572
+       EMOTION   83.759764   6.925008  107 0.669466
+   ART_CULTURE   83.224925   5.790564  600 0.236399
+          FOOD   82.999258   7.703496 1174 0.224830
+   OBJECT_HOME   82.876985   7.667846 2511 0.153021
+          BODY   82.850808   6.858458  656 0.267778
+         PLACE   82.707333   7.124828 1193 0.206279
+        NATURE   82.448802   7.190204 2190 0.153645
+   OBJECT_TECH   82.264279   6.220316 1224 0.177796
+        ANIMAL   82.261893   7.030266 1516 0.180560
+
+4d. Most Distant Category Pairs
+  PERSON <-> SCIENCE: 1.0373
+  EMOTION <-> SCIENCE: 1.0343
+  ABSTRACT <-> OBJECT_TECH: 1.0000
+  EMOTION <-> OBJECT_TECH: 0.9967
+  ACTION_PROCESS <-> SCIENCE: 0.9917
+  ABSTRACT <-> OBJECT_HOME: 0.9915
+  NATURE <-> SCIENCE: 0.9896
+  OBJECT_HOME <-> SCIENCE: 0.9870
+  BODY <-> SCIENCE: 0.9867
+  ABSTRACT <-> FOOD: 0.9845
+
+Closest Category Pairs
+  ANIMAL <-> BODY: 0.9129
+  ABSTRACT <-> EMOTION: 0.9096
+  FOOD <-> OBJECT_HOME: 0.9078
+  ACTION_PROCESS <-> EMOTION: 0.9077
+  OBJECT_HOME <-> OBJECT_TECH: 0.9077
+  BODY <-> FOOD: 0.9069
+  EMOTION <-> NATURE: 0.9034
+  BODY <-> EMOTION: 0.9025
+  NATURE <-> PLACE: 0.8968
+  EMOTION <-> PERSON: 0.8778
+
+4e. Category Distribution: Top 10% vs Bottom 10%
+      category  top10pct  bot10pct      diff
+      ABSTRACT  0.204662  0.039670  0.164991
+ACTION_PROCESS  0.079022  0.005152  0.073870
+        PERSON  0.088118  0.027306  0.060813
+       SCIENCE  0.063104  0.005152  0.057952
+   ART_CULTURE  0.020466  0.011850  0.008617
+       EMOTION  0.006822  0.005152  0.001670
+         PLACE  0.063104  0.075219 -0.012115
+   OBJECT_TECH  0.044343  0.059763 -0.015420
+          FOOD  0.063673  0.085008 -0.021335
+          BODY  0.030131  0.054611 -0.024480
+        ANIMAL  0.055145  0.139104 -0.083959
+        NATURE  0.111995  0.209171 -0.097175
+   OBJECT_HOME  0.169414  0.282844 -0.113429
+
+4f. Top 15 Category Combinations (n>=10)
+                                                     combination  n_cats  mean_score  std_score  count
+ABSTRACT + ACTION_PROCESS + FOOD + NATURE + OBJECT_HOME + PERSON       6  100.246617   1.042764     32
+        ABSTRACT + ACTION_PROCESS + OBJECT_HOME + PERSON + PLACE       5   99.450173   2.895961     30
+                        ABSTRACT + NATURE + OBJECT_HOME + PERSON       4   96.928634   6.153793     28
+                         ABSTRACT + ANIMAL + OBJECT_HOME + PLACE       4   88.335461   4.019102     10
+              ABSTRACT + ANIMAL + NATURE + OBJECT_HOME + SCIENCE       5   88.238502   3.344678     12
+          ABSTRACT + ANIMAL + NATURE + OBJECT_HOME + OBJECT_TECH       5   87.070881   5.416934     10
+                      BODY + FOOD + NATURE + OBJECT_HOME + PLACE       5   86.783973   5.943093     16
+                ABSTRACT + ANIMAL + NATURE + OBJECT_HOME + PLACE       5   86.720468   4.666094     12
+                         ANIMAL + NATURE + OBJECT_HOME + SCIENCE       4   86.429012   3.633299     18
+                          ABSTRACT + FOOD + NATURE + OBJECT_HOME       4   85.769433   7.612461     13
+                   ABSTRACT + NATURE + OBJECT_HOME + OBJECT_TECH       4   85.234120   5.648538     11
+                         ABSTRACT + NATURE + OBJECT_HOME + PLACE       4   85.204830   6.898853     18
+                 ANIMAL + NATURE + OBJECT_HOME + PLACE + SCIENCE       5   84.845586   4.371285     12
+                        ABSTRACT + ANIMAL + NATURE + OBJECT_HOME       4   84.782356   4.804670     24
+                             ANIMAL + FOOD + OBJECT_HOME + PLACE       4   84.515327   6.314796     13
+
+Bottom 10 Category Combinations (n>=10)
+                                        combination  n_cats  mean_score  std_score  count
+ANIMAL + NATURE + OBJECT_HOME + OBJECT_TECH + PLACE       5   77.899204   6.235513     20
+                                OBJECT_HOME + PLACE       2   73.353150   7.293207     10
+                          OBJECT_HOME + OBJECT_TECH       2   69.842613   7.597271     19
+                                 FOOD + OBJECT_HOME       2   69.344251   8.278926     10
+                                      FOOD + NATURE       2   68.796168   5.952446     11
+                                     NATURE + PLACE       2   63.319805   7.137799     12
+                                               BODY       1   61.156465   1.757493     11
+                                        OBJECT_HOME       1   59.716693   6.898288     30
+                                             ANIMAL       1   56.199536   4.220509     23
+                                               FOOD       1   51.873461   0.738836     11
+
+5. Top 10 Words per Category
+
+ABSTRACT:
+  любовь: 376
+  сон: 186
+  жизнь: 171
+  красота: 142
+  слово: 136
+  существительное: 134
+  креативность: 130
+  глагол: 129
+  сингулярность: 119
+  абстракция: 117
+
+ACTION_PROCESS:
+  игра: 137
+  обсуждение: 121
+  работа: 115
+  жест: 77
+  футбол: 67
+  исследование: 64
+  тест: 63
+  полет: 62
+  спорт: 57
+  взрыв: 53
+
+ANIMAL:
+  собака: 736
+  кот: 657
+  кошка: 575
+  слон: 279
+  корова: 219
+  мышь: 164
+  рыба: 154
+  лошадь: 145
+  конь: 114
+  крокодил: 105
+
+ART_CULTURE:
+  книга: 382
+  картина: 147
+  словарь: 141
+  музыка: 135
+  песня: 108
+  гитара: 99
+  кино: 97
+  нота: 77
+  сольфеджио: 70
+  карта: 68
+
+BODY:
+  волос: 159
+  ноготь: 157
+  рука: 145
+  нога: 133
+  жопа: 128
+  мозг: 125
+  глаз: 121
+  нос: 102
+  зуб: 98
+  кровь: 94
+
+EMOTION:
+  радость: 143
+  боль: 66
+  смех: 64
+  зависть: 55
+  крик: 53
+  грусть: 51
+  улыбка: 47
+
+FOOD:
+  яблоко: 376
+  молоко: 225
+  хлеб: 192
+  банан: 154
+  помидор: 133
+  огурец: 132
+  арбуз: 119
+  еда: 112
+  морковь: 111
+  гриб: 105
+
+NATURE:
+  небо: 563
+  солнце: 537
+  дерево: 504
+  море: 420
+  снег: 361
+  облако: 299
+  вода: 292
+  звезда: 280
+  луна: 223
+  земля: 217
+
+OBJECT_HOME:
+  стол: 811
+  стул: 431
+  кровать: 291
+  окно: 252
+  ручка: 208
+  карандаш: 208
+  дверь: 198
+  ложка: 189
+  диван: 185
+  шкаф: 164
+
+OBJECT_TECH:
+  машина: 502
+  самолет: 332
+  телефон: 248
+  автомобиль: 234
+  компьютер: 230
+  телевизор: 171
+  корабль: 142
+  ракета: 137
+  велосипед: 119
+  клавиатура: 119
+
+PERSON:
+  мама: 236
+  человек: 218
+  ребенок: 102
+  трус: 102
+  лакей: 80
+  путина: 69
+  семья: 68
+  мать: 65
+  гном: 62
+  сын: 61
+
+PLACE:
+  космос: 510
+  дом: 506
+  планета: 252
+  лес: 221
+  океан: 202
+  поле: 187
+  вселенная: 170
+  дорога: 160
+  школа: 148
+  город: 134
+
+SCIENCE:
+  математика: 151
+  атом: 121
+  молекула: 102
+  алгоритм: 100
+  квазар: 100
+  кварк: 96
+  интеграл: 91
+  астероид: 91
+  круг: 83
+  электричество: 81
