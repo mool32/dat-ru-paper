@@ -76,7 +76,7 @@ Data were collected anonymously through a publicly available web application. No
 
 ### 2.8 Analysis Software
 
-All analyses were conducted in Python 3.12 using NumPy, SciPy, pandas, statsmodels, matplotlib, and seaborn. UMAP dimensionality reduction used the umap-learn library. Word corpus frequencies were obtained from the wordfreq library (Speer et al., 2018). Mixed-effects models used statsmodels MixedLM. All analysis scripts are available at [repository URL].
+All analyses were conducted in Python 3.12 using NumPy, SciPy, pandas, statsmodels, matplotlib, and seaborn. UMAP dimensionality reduction used the umap-learn library. Word corpus frequencies were obtained from the wordfreq library (Speer et al., 2018). Mixed-effects models used statsmodels MixedLM. All analysis scripts are available at https://github.com/mool32/dat-ru-paper.
 
 ---
 
@@ -457,4 +457,4 @@ User-agent strings were classified into three confidence tiers based on device m
 
 ### S5. Data and Code Availability
 
-The anonymized dataset (scores, words, timestamps, time spent) and all analysis scripts are available at [repository URL]. User-agent strings are excluded to protect participant privacy.
+The anonymized dataset (scores, words, timestamps, time spent) and all analysis scripts are available at https://github.com/mool32/dat-ru-paper. User-agent strings are excluded to protect participant privacy.
